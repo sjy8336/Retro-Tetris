@@ -1,0 +1,16 @@
+{
+  "name": "retro-tetris-connect",
+  "version": "1.0.0",
+  "description": "웹 기술 스택만으로 구현하는 실시간 데이터 연동 테트리스",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "keywords": ["tetris", "game", "express", "canvas"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
