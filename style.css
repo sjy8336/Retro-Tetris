@@ -1,0 +1,396 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #e0e0e0;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border: 2px solid #0f3460;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.game-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.score-display {
+    display: flex;
+    gap: 30px;
+    font-size: 1.2em;
+}
+
+.score-display strong {
+    color: #00d4ff;
+    font-size: 1.3em;
+}
+
+.game-layout {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* 게임 영역 */
+.game-area {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.hold-piece {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #0f3460;
+    text-align: center;
+    align-self: flex-start;
+}
+
+.hold-piece h3 {
+    margin-bottom: 10px;
+    color: #00d4ff;
+}
+
+#holdPiece {
+    background: #0a0a0a;
+    border: 2px solid #333;
+    border-radius: 5px;
+}
+
+#gameBoard {
+    background: #0a0a0a;
+    border: 3px solid #00d4ff;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.game-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 200px;
+}
+
+.next-piece {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #0f3460;
+    text-align: center;
+}
+
+.next-piece h3 {
+    margin-bottom: 10px;
+    color: #00d4ff;
+}
+
+#nextPiece {
+    background: #0a0a0a;
+    border: 2px solid #333;
+    border-radius: 5px;
+}
+
+.controls-info {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #0f3460;
+}
+
+.controls-info h3 {
+    margin-bottom: 10px;
+    color: #00d4ff;
+}
+
+.controls-info ul {
+    list-style: none;
+    line-height: 1.8;
+}
+
+.controls-info li {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 1em;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+    color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, #00e5ff 0%, #00aadd 100%);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #666 0%, #444 100%);
+    color: #fff;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: linear-gradient(135deg, #777 0%, #555 100%);
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 랭킹 보드 */
+.ranking-board {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid #0f3460;
+    min-width: 350px;
+    max-width: 400px;
+}
+
+.ranking-board h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00d4ff;
+    font-size: 1.8em;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.ranking-list {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.ranking-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ranking-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.ranking-list::-webkit-scrollbar-thumb {
+    background: #00d4ff;
+    border-radius: 4px;
+}
+
+.ranking-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    background: rgba(15, 52, 96, 0.3);
+    border-radius: 5px;
+    border-left: 4px solid #00d4ff;
+    transition: all 0.3s ease;
+}
+
+.ranking-item:hover {
+    background: rgba(15, 52, 96, 0.5);
+    transform: translateX(5px);
+}
+
+.ranking-item.rank-top {
+    border-left-color: #ffd700;
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.ranking-item.rank-top:hover {
+    background: rgba(255, 215, 0, 0.2);
+}
+
+.rank-number {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #00d4ff;
+    min-width: 30px;
+}
+
+.rank-top .rank-number {
+    color: #ffd700;
+}
+
+.rank-info {
+    flex: 1;
+    margin: 0 15px;
+}
+
+.rank-nickname {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.rank-date {
+    font-size: 0.85em;
+    color: #aaa;
+}
+
+.rank-score {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #00d4ff;
+}
+
+.rank-top .rank-score {
+    color: #ffd700;
+}
+
+/* 모달 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 40px;
+    border-radius: 15px;
+    border: 3px solid #00d4ff;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: #00d4ff;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.modal-content p {
+    font-size: 1.3em;
+    margin-bottom: 25px;
+}
+
+.modal-content #finalScore {
+    color: #ffd700;
+    font-size: 1.5em;
+}
+
+.modal-form {
+    margin-top: 25px;
+}
+
+.modal-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #e0e0e0;
+    font-size: 1.1em;
+}
+
+.modal-form input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    font-family: 'Courier New', monospace;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #0f3460;
+    border-radius: 5px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.modal-form input:focus {
+    outline: none;
+    border-color: #00d4ff;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+    .game-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .ranking-board {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .game-area {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    .score-display {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

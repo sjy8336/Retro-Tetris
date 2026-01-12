@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Tetris Connect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Retro Tetris Connect</h1>
+            <div class="game-info">
+                <div class="score-display">
+                    <span>점수: <strong id="currentScore">0</strong></span>
+                    <span>레벨: <strong id="currentLevel">1</strong></span>
+                    <span>라인: <strong id="linesCleared">0</strong></span>
+                </div>
+            </div>
+        </header>
+
+        <main class="game-layout">
+            <!-- 게임 화면 -->
+            <div class="game-area">
+                <div class="hold-piece">
+                    <h3>보관</h3>
+                    <canvas id="holdPiece" width="120" height="120"></canvas>
+                </div>
+                
+                <canvas id="gameBoard" width="300" height="600"></canvas>
+                
+                <div class="game-controls">
+                    <div class="next-piece">
+                        <h3>다음 블록</h3>
+                        <canvas id="nextPiece" width="120" height="120"></canvas>
+                    </div>
+                    
+                    <div class="controls-info">
+                        <h3>조작법</h3>
+                        <ul>
+                            <li>← → : 이동</li>
+                            <li>↑ : 회전</li>
+                            <li>↓ : 빠른 낙하</li>
+                            <li>C : 블록 보관/교체</li>
+                            <li>Space : 일시정지</li>
+                        </ul>
+                    </div>
+                    
+                    <button id="startBtn" class="btn-primary">게임 시작</button>
+                    <button id="pauseBtn" class="btn-secondary" disabled>일시정지</button>
+                </div>
+            </div>
+
+            <!-- 랭킹 보드 -->
+            <aside class="ranking-board">
+                <h2>🏆 TOP 10 랭킹</h2>
+                <div id="rankingList" class="ranking-list">
+                    <p>랭킹을 불러오는 중...</p>
+                </div>
+            </aside>
+        </main>
+
+        <!-- 게임 종료 모달 -->
+        <div id="gameOverModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>게임 오버!</h2>
+                <p>최종 점수: <strong id="finalScore">0</strong></p>
+                <div class="modal-form">
+                    <label for="nickname">닉네임을 입력하세요:</label>
+                    <input type="text" id="nickname" placeholder="닉네임" maxlength="20">
+                    <div class="modal-buttons">
+                        <button id="saveScoreBtn" class="btn-primary">점수 저장</button>
+                        <button id="cancelBtn" class="btn-secondary">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
